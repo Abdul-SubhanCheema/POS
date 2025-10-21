@@ -359,9 +359,15 @@ const getSalesStatistics = async (req, res) => {
                 { $unwind: '$customerInfo' }
             ]),
             
-            // Daily sales for the selected period
+            // Daily sales for the last 30 days
             Sale.aggregate([
-                { $match: dateFilter },
+                { 
+                    $match: { 
+                        saleDate: { 
+                            $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) 
+                        } 
+                    } 
+                },
                 {
                     $addFields: {
                         calculatedProfit: {

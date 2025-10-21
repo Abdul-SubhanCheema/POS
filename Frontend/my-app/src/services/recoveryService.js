@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/shop-api';
+import { API_BASE_URL } from './api';   
 
 const recoveryService = {
     // Add a new recovery payment

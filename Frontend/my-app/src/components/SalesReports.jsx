@@ -35,10 +35,7 @@ import {
     AlertTitle,
     AlertDescription,
     useToast,
-    Divider,
-    Input,
-    FormControl,
-    FormLabel
+    Divider
 } from '@chakra-ui/react';
 import {
     Chart as ChartJS,
@@ -75,11 +72,6 @@ const SalesReports = () => {
     const [loading, setLoading] = useState(true);
     const [dateRange, setDateRange] = useState('30'); // days
     const [chartType, setChartType] = useState('daily');
-    const [customDateRange, setCustomDateRange] = useState({
-        startDate: '',
-        endDate: ''
-    });
-    const [isCustomRange, setIsCustomRange] = useState(false);
     const toast = useToast();
 
     // Color scheme
@@ -91,18 +83,9 @@ const SalesReports = () => {
     const fetchSalesData = async () => {
         setLoading(true);
         try {
-            let startDate, endDate;
-
-            if (isCustomRange && customDateRange.startDate && customDateRange.endDate) {
-                startDate = new Date(customDateRange.startDate);
-                endDate = new Date(customDateRange.endDate);
-                // Set end date to end of day
-                endDate.setHours(23, 59, 59, 999);
-            } else {
-                endDate = new Date();
-                startDate = new Date();
-                startDate.setDate(startDate.getDate() - parseInt(dateRange));
-            }
+            const endDate = new Date();
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - parseInt(dateRange));
 
             const [statisticsResponse, salesResponse] = await Promise.all([
                 saleService.getSalesStatistics({
@@ -111,7 +94,7 @@ const SalesReports = () => {
                 }),
                 saleService.getAllSales({
                     page: 1,
-                    limit: 50, // Increased limit for better filtering
+                    limit: 10,
                     startDate: startDate.toISOString(),
                     endDate: endDate.toISOString()
                 })
@@ -141,51 +124,7 @@ const SalesReports = () => {
 
     useEffect(() => {
         fetchSalesData();
-    }, [dateRange, isCustomRange, customDateRange]);
-
-    // Helper function to handle date range change
-    const handleDateRangeChange = (value) => {
-        if (value === 'custom') {
-            setIsCustomRange(true);
-            // Set default dates to last 30 days
-            const end = new Date();
-            const start = new Date();
-            start.setDate(start.getDate() - 30);
-            
-            setCustomDateRange({
-                startDate: start.toISOString().split('T')[0],
-                endDate: end.toISOString().split('T')[0]
-            });
-        } else {
-            setIsCustomRange(false);
-            setDateRange(value);
-        }
-    };
-
-    // Apply custom date range
-    const applyCustomDateRange = () => {
-        if (customDateRange.startDate && customDateRange.endDate) {
-            if (new Date(customDateRange.startDate) > new Date(customDateRange.endDate)) {
-                toast({
-                    title: 'Invalid Date Range',
-                    description: 'Start date cannot be after end date',
-                    status: 'error',
-                    duration: 3000,
-                    isClosable: true,
-                });
-                return;
-            }
-            fetchSalesData();
-        } else {
-            toast({
-                title: 'Incomplete Date Range',
-                description: 'Please select both start and end dates',
-                status: 'warning',
-                duration: 3000,
-                isClosable: true,
-            });
-        }
-    };
+    }, [dateRange]);
 
     // Chart configurations
     const chartOptions = {
@@ -340,79 +279,26 @@ const SalesReports = () => {
                         </Text>
                     </VStack>
 
-                    <VStack align="end" spacing={3}>
-                        <HStack spacing={4}>
-                            <Select
-                                value={isCustomRange ? 'custom' : dateRange}
-                                onChange={(e) => handleDateRangeChange(e.target.value)}
-                                w="200px"
-                                bg={cardBg}
-                            >
-                                <option value="7">Last 7 days</option>
-                                <option value="30">Last 30 days</option>
-                                <option value="90">Last 3 months</option>
-                                <option value="365">Last year</option>
-                                <option value="custom">Custom Date Range</option>
-                            </Select>
-                            <Button
-                                onClick={fetchSalesData}
-                                colorScheme="purple"
-                                variant="outline"
-                            >
-                                Refresh
-                            </Button>
-                        </HStack>
-
-                        {/* Custom Date Range Picker */}
-                        {isCustomRange && (
-                            <Card bg={cardBg} borderColor={borderColor} p={4}>
-                                <VStack spacing={4} align="stretch">
-                                    <Text fontWeight="semibold" color="purple.600">
-                                        <Icon as={FiCalendar} mr={2} />
-                                        Select Date Range
-                                    </Text>
-                                    <HStack spacing={4}>
-                                        <FormControl>
-                                            <FormLabel fontSize="sm">Start Date</FormLabel>
-                                            <Input
-                                                type="date"
-                                                value={customDateRange.startDate}
-                                                onChange={(e) => setCustomDateRange(prev => ({
-                                                    ...prev,
-                                                    startDate: e.target.value
-                                                }))}
-                                                bg={cardBg}
-                                                size="sm"
-                                            />
-                                        </FormControl>
-                                        <FormControl>
-                                            <FormLabel fontSize="sm">End Date</FormLabel>
-                                            <Input
-                                                type="date"
-                                                value={customDateRange.endDate}
-                                                onChange={(e) => setCustomDateRange(prev => ({
-                                                    ...prev,
-                                                    endDate: e.target.value
-                                                }))}
-                                                bg={cardBg}
-                                                size="sm"
-                                            />
-                                        </FormControl>
-                                        <Box pt={6}>
-                                            <Button
-                                                onClick={applyCustomDateRange}
-                                                colorScheme="purple"
-                                                size="sm"
-                                                leftIcon={<Icon as={FiCalendar} />}
-                                            >
-                                                Apply
-                                            </Button>
-                                        </Box>
-                                    </HStack>
-                                </VStack>
-                            </Card>
-                        )}
-                    </VStack>
+                    <HStack spacing={4}>
+                        <Select
+                            value={dateRange}
+                            onChange={(e) => setDateRange(e.target.value)}
+                            w="200px"
+                            bg={cardBg}
+                        >
+                            <option value="7">Last 7 days</option>
+                            <option value="30">Last 30 days</option>
+                            <option value="90">Last 3 months</option>
+                            <option value="365">Last year</option>
+                        </Select>
+                        <Button
+                            onClick={fetchSalesData}
+                            colorScheme="purple"
+                            variant="outline"
+                        >
+                            Refresh
+                        </Button>
+                    </HStack>
                 </Flex>
 
                 {/* Key Metrics Cards */}
@@ -428,10 +314,7 @@ const SalesReports = () => {
                                         </StatNumber>
                                         <StatHelpText>
                                             <StatArrow type="increase" />
-                                            {isCustomRange 
-                                                ? `${new Date(customDateRange.startDate).toLocaleDateString()} - ${new Date(customDateRange.endDate).toLocaleDateString()}`
-                                                : `Last ${dateRange} days`
-                                            }
+                                            Last {dateRange} days
                                         </StatHelpText>
                                     </Box>
                                     <Icon as={FiDollarSign} w={8} h={8} color="purple.500" />
@@ -509,10 +392,7 @@ const SalesReports = () => {
                                         </StatNumber>
                                         <StatHelpText>
                                             <StatArrow type="increase" />
-                                            {isCustomRange 
-                                                ? `${new Date(customDateRange.startDate).toLocaleDateString()} - ${new Date(customDateRange.endDate).toLocaleDateString()}`
-                                                : `Last ${dateRange} days`
-                                            }
+                                            Last {dateRange} days
                                         </StatHelpText>
                                     </Box>
                                     <Icon as={FiTrendingUp} w={8} h={8} color="teal.500" />
@@ -591,12 +471,7 @@ const SalesReports = () => {
                 {/* Recent Sales Table */}
                 <Card bg={cardBg} borderColor={borderColor}>
                     <CardHeader>
-                        <Heading size="md">
-                            Sales {isCustomRange 
-                                ? `(${new Date(customDateRange.startDate).toLocaleDateString()} - ${new Date(customDateRange.endDate).toLocaleDateString()})`
-                                : `- Last ${dateRange} days`
-                            }
-                        </Heading>
+                        <Heading size="md">Recent Sales</Heading>
                     </CardHeader>
                     <CardBody>
                         {recentSales.length > 0 ? (

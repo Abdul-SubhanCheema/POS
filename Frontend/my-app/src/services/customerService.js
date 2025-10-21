@@ -1,5 +1,5 @@
 // API service for customer operations
-const API_BASE_URL = 'http://localhost:5000/shop-api';
+import { API_BASE_URL } from './api';
 
 const customerService = {
     // Get all customers
