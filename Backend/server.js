@@ -47,6 +47,10 @@ app.use("/shop-api/products", ProductRouter);
 app.use("/shop-api/sales", SaleRouter);
 app.use("/shop-api/recovery", RecoveryRouter);
 
+app.use('/',async(req,res)=>{
+    res.send("API is running....");
+});
+
 //Listen to port
 const PORT = process.env.PORT || 3000;
 
