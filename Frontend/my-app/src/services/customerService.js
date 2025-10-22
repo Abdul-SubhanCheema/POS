@@ -1,5 +1,4 @@
-// API service for customer operations
-import { API_BASE_URL } from './api';
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL;
 
 const customerService = {
     // Get all customers
