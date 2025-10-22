@@ -30,7 +30,8 @@ app.use(
 		credentials: true,
 	})
 );
-
+app.use(cors());
+//DB config
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.connectionstring, {});
@@ -47,7 +48,9 @@ app.use("/shop-api/products", ProductRouter);
 app.use("/shop-api/sales", SaleRouter);
 app.use("/shop-api/recovery", RecoveryRouter);
 
-
+app.get('/', (req, res) => {
+    res.send('Fertilizer POS Backend is running');
+});
 
 //Listen to port
 const PORT = process.env.PORT || 3000;
