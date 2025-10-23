@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
     cors({
         origin: [
-            "https://fertilizer-frontend-xi.vercel.app",
+            "https://pos-eie8.vercel.app",
             "http://localhost:5173",
             "http://localhost:3000"
         ],
