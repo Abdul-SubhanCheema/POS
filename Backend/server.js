@@ -6,8 +6,6 @@ const cors = require("cors");
 // Load env variables
 dotenv.config();
 
-
-
 const CustomerRouter = require("./Routes/CustomerRouter");
 const SupplierRouter = require("./Routes/SupplierRouter");
 const ProductRouter = require("./Routes/ProductRouter");
@@ -17,20 +15,26 @@ const RecoveryRouter = require("./Routes/recoveryRoutes");
 //Express app intialization
 const app = express();
 
-
-
 //Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Updated CORS configuration
 app.use(
-	cors({
-		origin: [process.env.FRONTEND_URL],
-		methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-		allowedHeaders: ["Content-Type", "Authorization"],
-		credentials: true,
-	})
+    cors({
+        origin: [
+            "https://fertilizer-frontend-xi.vercel.app",
+            "http://localhost:5173",
+            "http://localhost:3000"
+        ],
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+        allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+        credentials: true,
+        optionsSuccessStatus: 200
+    })
 );
-app.use(cors());
+
+
 //DB config
 const connectDB = async () => {
     try {
