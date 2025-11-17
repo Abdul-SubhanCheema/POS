@@ -4,7 +4,7 @@
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=70A5FD&center=true&vCenter=true&width=800&lines=Empowering+Seamless+Transactions;Accelerating+Business+Growth;Modern+Retail+Solutions" alt="Typing SVG" />
 
-<img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" width="500">
+
 
 ![Last Commit](https://img.shields.io/github/last-commit/Abdul-SubhanCheema/POS?style=for-the-badge&color=70A5FD)
 ![Top Language](https://img.shields.io/github/languages/top/Abdul-SubhanCheema/POS?style=for-the-badge&color=BF91F3)
