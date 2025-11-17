@@ -1,252 +1,127 @@
-<div align="center">
+# POS System
 
-# 🏪 POS - Point of Sale System
+A modern Point of Sale system built with the MERN stack, featuring role-based access control and comprehensive business management tools.
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=70A5FD&center=true&vCenter=true&width=800&lines=Empowering+Seamless+Transactions;Accelerating+Business+Growth;Modern+Retail+Solutions" alt="Typing SVG" />
+## Overview
 
-<img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" width="500">
+POS System is a full-stack web application designed for retail businesses to manage sales, inventory, customers, and suppliers. The system provides separate dashboards for different user roles (Admin, Cashier) with appropriate permissions and functionality.
 
-![Last Commit](https://img.shields.io/github/last-commit/Abdul-SubhanCheema/POS?style=for-the-badge&color=70A5FD)
-![Top Language](https://img.shields.io/github/languages/top/Abdul-SubhanCheema/POS?style=for-the-badge&color=BF91F3)
-![Language Count](https://img.shields.io/github/languages/count/Abdul-SubhanCheema/POS?style=for-the-badge&color=38BDAE)
+## Tech Stack
 
-</div>
+**Backend:**
+- Node.js & Express.js
+- MongoDB & Mongoose
+- CORS, dotenv
 
----
+**Frontend:**
+- React 19 with Vite
+- Chakra UI
+- Chart.js & React Charts
+- jsPDF for report generation
 
-<div align="center">
+## Features
 
-## 🚀 Built with the tools and technologies
+- **Sales Management**: Process sales with automatic inventory updates
+- **Inventory Control**: Track products, categories, and stock levels
+- **Customer Management**: Maintain customer records and purchase history
+- **Supplier Management**: Handle supplier information and transactions
+- **Recovery Management**: Track pending payments and recoveries
+- **Role-Based Access**: Different permissions for Admin and Cashier roles
+- **Reporting**: Generate PDF reports and visual analytics
+- **Responsive Design**: Works across desktop and mobile devices
 
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100"><br><br>
+## Quick Start
 
-### Backend Technologies
-<p align="center">
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express"/>
-  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
-  <img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white" alt="Mongoose"/>
-  <img src="https://img.shields.io/badge/.ENV-ECD53F?style=for-the-badge&logo=dotenv&logoColor=black" alt=".ENV"/>
-</p>
+### Prerequisites
 
-### Frontend Technologies
-<p align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white" alt="Chart.js"/>
-</p>
+- Node.js (≥14.0)
+- MongoDB
+- npm or yarn
 
-### Development Tools
-<p align="center">
-  <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="NPM"/>
-  <img src="https://img.shields.io/badge/Nodemon-76D04B?style=for-the-badge&logo=nodemon&logoColor=white" alt="Nodemon"/>
-  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint"/>
-  <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown"/>
-</p>
+### Installation
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
-
-</div>
-
----
-
-## 📋 Table of Contents
-
-- [🎯 Overview](#-overview)
-- [🚀 Getting Started](#-getting-started)
-  - [📋 Prerequisites](#-prerequisites)
-  - [⚡ Installation](#-installation)
-- [💻 Usage](#-usage)
-- [🧪 Testing](#-testing)
-- [📁 Project Structure](#-project-structure)
-- [🌟 Key Features](#-key-features)
-- [🤝 Contributing](#-contributing)
-
----
-
-<div align="center">
-
-## 🎯 Overview
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
-
-</div>
-
-**POS** is a comprehensive **point-of-sale system** designed to streamline retail operations with a robust backend and an intuitive frontend. It offers a modular architecture that simplifies data management for customers, products, sales, recoveries, and suppliers, all integrated through RESTful APIs. 
-
-The frontend, built with **React** and **Vite**, provides a dynamic user interface with role-based access control, ensuring secure and personalized experiences. Additionally, POS includes tools for generating detailed PDF reports and visual analytics, empowering developers to build scalable, secure, and user-friendly retail applications.
-
-### 🌟 Why POS?
-
-This project helps developers rapidly deploy and customize retail solutions, reducing development time while maintaining high standards of security and usability.
-
-<div align="center">
-
-### 🔥 Core Features
-
-<table align="center">
-  <tr>
-    <td align="center">
-      <img src="https://user-images.githubusercontent.com/74038190/212257460-738ff738-247f-4445-a718-cdd0ca76e2db.gif" width="50"><br>
-      <strong>🛠️ Backend API & Data Models</strong><br>
-      <em>Modular schemas and RESTful routes for comprehensive data handling</em>
-    </td>
-    <td align="center">
-      <img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="50"><br>
-      <strong>🔐 Role-Based Security</strong><br>
-      <em>Fine-grained permission management for different user roles</em>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385b1974ca.gif" width="50"><br>
-      <strong>🎨 Rich UI Components</strong><br>
-      <em>Sales, inventory, customer, supplier, and recovery management interfaces</em>
-    </td>
-    <td align="center">
-      <img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="50"><br>
-      <strong>📊 Reporting & Analytics</strong><br>
-      <em>PDF report generation and visual sales insights</em>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" colspan="2">
-      <img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="50"><br>
-      <strong>🚀 Scalable & Extensible</strong><br>
-      <em>Designed for growth and customization in retail environments</em>
-    </td>
-  </tr>
-</table>
-
-</div>
-
----
-
-<div align="center">
-
-## 🚀 Getting Started
-
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
-
-</div>
-
-### 📋 Prerequisites
-
-This project requires the following dependencies:
-
-<div align="center">
-
-| Requirement | Version | Description |
-|-------------|---------|-------------|
-| **Programming Language** | JavaScript (ES6+) | Core development language |
-| **Runtime Environment** | Node.js (≥14.0) | JavaScript runtime |
-| **Package Manager** | NPM (≥6.0) | Dependency management |
-| **Database** | MongoDB (≥4.0) | Document database |
-
-</div>
-
-### ⚡ Installation
-
-Build **POS** from the source and install dependencies:
-
-#### 1️⃣ Clone the repository
-
+1. **Clone the repository**
 ```bash
-git clone https://github.com/Abdul-SubhanCheema/POS
-```
-
-#### 2️⃣ Navigate to the project directory
-
-```bash
+git clone https://github.com/Abdul-SubhanCheema/POS.git
 cd POS
 ```
 
-#### 3️⃣ Install the dependencies
-
-Using **npm**:
-
+2. **Setup Backend**
 ```bash
+cd Backend
 npm install
 ```
 
-#### 4️⃣ Environment Setup
-
-Create a `.env` file in the root directory:
-
+3. **Setup Frontend**
 ```bash
-# Database Configuration
-MONGODB_URI=mongodb://localhost:27017/pos_db
-DB_NAME=pos_system
+cd ../Frontend/my-app
+npm install
+```
 
-# Server Configuration
+4. **Environment Configuration**
+
+Create `.env` in the Backend directory:
+```env
+connectionstring=mongodb://localhost:27017/pos_db
 PORT=5000
-NODE_ENV=development
-
-# JWT Configuration
-JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRES_IN=7d
-
-# Other Configuration
-CORS_ORIGIN=http://localhost:3000
 ```
 
----
+### Running the Application
 
-## 💻 Usage
-
-Run the project with:
-
-### 🖥️ Development Mode
-
+**Start Backend:**
 ```bash
-# Start backend server
-npm run server
-
-# Start frontend development server
+cd Backend
 npm run dev
-
-# Start both frontend and backend concurrently
-npm start
 ```
 
-### 🏗️ Production Mode
-
+**Start Frontend:**
 ```bash
-# Build for production
-npm run build
-
-# Start production server
-npm run start:prod
+cd Frontend/my-app
+npm run dev
 ```
 
-### 📱 Available Scripts
+The application will be available at:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:5000
 
-| Command | Description |
-|---------|-------------|
-| `npm start` | Start both frontend and backend |
-| `npm run dev` | Start frontend in development mode |
-| `npm run server` | Start backend server |
-| `npm run build` | Build for production |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Fix ESLint errors |
+## Project Structure
 
----
+```
+POS/
+├── Backend/
+│   ├── Controllers/     # Business logic
+│   ├── Models/         # Database schemas
+│   ├── Routes/         # API endpoints
+│   └── server.js       # Entry point
+└── Frontend/my-app/
+    ├── src/
+    │   ├── components/ # React components
+    │   ├── services/   # API services
+    │   ├── context/    # React context
+    │   └── constants/  # App constants
+    └── public/
+```
 
-## 🧪 Testing
+## API Endpoints
 
-**POS** uses a comprehensive testing framework. Run the test suite with:
+- `POST /shop-api/customers` - Customer management
+- `POST /shop-api/suppliers` - Supplier management
+- `POST /shop-api/products` - Product management
+- `POST /shop-api/sales` - Sales processing
+- `POST /shop-api/recovery` - Recovery management
 
-```bash
-# Run all tests
-npm test
+## Deployment
 
-# Run tests in watch mode
-npm run test:watch
+The application is configured for deployment on Vercel with included `vercel.json` files for both frontend and backend.
 
-# Run tests with coverage
-npm run test:coverage
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Author
+
+**Abdul Subhan Cheema**
+- GitHub: [@Abdul-SubhanCheema](https://github.com/Abdul-SubhanCheema)
 
 # Run specific test file
 npm test -- --grep "authentication"
